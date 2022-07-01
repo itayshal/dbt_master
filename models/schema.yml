@@ -1,0 +1,96 @@
+
+version: 2
+
+models:
+  - name: fact
+    meta:
+      fal:
+        scripts:
+          - fal_test.py
+  - name: stg_tpch_sf1__customer
+    description: ""
+    columns:
+      - name: c_custkey
+        description: "primary key"
+        tests:
+          - unique
+          - not_null 
+
+      - name: c_name
+        description: ""
+
+      - name: c_address
+        description: ""
+
+      - name: c_nationkey
+        description: ""
+
+      - name: c_phone
+        description: ""
+
+      - name: c_acctbal
+        description: ""
+
+      - name: c_mktsegment
+        description: ""
+ 
+      - name: c_comment
+        description: ""
+
+  - name: stg_tpch_sf1__lineitem
+    description: ""
+    tests:
+    - dbt_utils.unique_combination_of_columns:
+        combination_of_columns:
+          - l_orderkey
+          - l_partkey
+          - l_suppkey
+          - l_linenumber
+    columns:
+      - name: l_orderkey 
+        description: ""       
+
+      - name: l_partkey
+        description: ""
+
+      - name: l_suppkey
+        description: ""
+
+      - name: l_linenumber
+        description: ""
+
+      - name: l_quantity
+        description: ""
+
+      - name: l_extendedprice
+        description: ""
+
+      - name: l_discount
+        description: ""
+
+      - name: l_tax
+        description: ""
+
+      - name: l_returnflag
+        description: ""
+
+      - name: l_linestatus
+        description: ""
+
+      - name: l_shipdate
+        description: ""
+
+      - name: l_commitdate
+        description: ""
+
+      - name: l_receiptdate
+        description: ""
+
+      - name: l_shipinstruct
+        description: ""
+
+      - name: l_shipmode
+        description: ""
+
+      - name: l_comment
+        description: ""
